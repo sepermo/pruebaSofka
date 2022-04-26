@@ -5,12 +5,13 @@ import Modelo.ClsNivel;
 import Modelo.ClsOpcion;
 import Modelo.ClsPregunta;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 //import Vistas.ResponderPreguntas;
 import java.util.*;
 
 public class principal {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         /*ResponderPreguntas panelPreguntas=new ResponderPreguntas();
         panelPreguntas.setVisible(true);*/
      
