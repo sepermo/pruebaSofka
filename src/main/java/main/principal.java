@@ -1,14 +1,16 @@
 package main;
 
+import Modelo.ClsHistorico;
 import Modelo.ClsNivel;
 import Modelo.ClsOpcion;
 import Modelo.ClsPregunta;
+import java.io.FileNotFoundException;
 //import Vistas.ResponderPreguntas;
 import java.util.*;
 
 public class principal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         /*ResponderPreguntas panelPreguntas=new ResponderPreguntas();
         panelPreguntas.setVisible(true);*/
      
@@ -26,7 +28,6 @@ public class principal {
         opcionB=new ClsOpcion("alcon", false);
         opcionC=new ClsOpcion("caballo", false);
         opcionD=new ClsOpcion("pez volador", false);
-   
         pregunta=new ClsPregunta(
                 "¿cual es el unico mamifero que puede volar?", 
                 opcionA, 
@@ -375,7 +376,7 @@ public class principal {
         //terminan los niveles
         boolean continuar=true;
         int contarNivel=0;
-        double premio=0;
+        int premio=0;
         do {  
             if(contarNivel<5){
              char opc;
@@ -401,6 +402,8 @@ public class principal {
                 continuar=false;
             }
         } while (continuar);
-    }
+        
+        new ClsHistorico().guardar(premio);
     
-}
+    }       
+} 
