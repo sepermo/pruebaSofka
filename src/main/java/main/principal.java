@@ -6,7 +6,6 @@ import Modelo.ClsOpcion;
 import Modelo.ClsPregunta;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//import Vistas.ResponderPreguntas;
 import java.util.*;
 
 public class principal {
@@ -375,35 +374,44 @@ public class principal {
         
         niveles[4]=nivel5;
         //terminan los niveles
+        
         boolean continuar=true;
         int contarNivel=0;
         int premio=0;
+         System.out.println("BIENVENIDO AL JUEGO DE PREGUNTAS DE SEPERMO");
         do {  
             if(contarNivel<5){
              char opc;
-            System.out.println("¿desea continuar? s / n");
+            System.out.println("¿desea continuar?:");
+            System.out.println("(presione s/S para si o n/N para no)\r\n");
             opc = leer.next().charAt(0);
             continuar=(opc=='s'||opc=='S');
             if(continuar){
                 if(niveles[contarNivel].Preguntar()){
                     contarNivel++;
                     premio=premio+200;
-                    System.out.println("llevas: "+premio+" puntos");
+                    System.out.println("CORRECTO!");
+                    System.out.println("tu puntaje actual es de: "+premio+" puntos");
                 }else{
                     continuar=false;
-                    System.out.println("Fin del juego, su acumulado es "+premio);
+                    System.out.println("FALSO!");
+                    System.out.println("parece que haz perdido, tu puntaje final fue de: "+premio+" puntos\r\n");
+                    System.out.println("gracias por jugar conmigo, espero te hayas divertido, que vuelvas pronto");
 
                 }
             }else{
-                System.out.println("Fin del juego, su acumulado es "+premio);
+                System.out.println("parece que haz decidido irte, tu puntaje final fue de: "+premio+" puntos\r\n");
+                System.out.println("gracias por jugar conmigo, espero te hayas divertido, que vuelvas pronto");
                 continuar=false;
             }
             }else{
-                System.out.println("!haz ganado¡ tu puntaje es: "+premio);
+                System.out.println("!HAZ GANADO¡");
+                System.out.println("felicidades haz ganado el premio mayor y haz obtenido: "+premio+"puntos\r\n");
+                System.out.println("gracias por jugar conmigo, espero te hayas divertido, que vuelvas pronto");
+
                 continuar=false;
             }
         } while (continuar);
-        
         new ClsHistorico().guardar(premio);
     
     }       
